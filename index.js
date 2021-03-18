@@ -20,7 +20,7 @@ app.get('/',(req,res) => {
 app.use('/api/url', require('./routes/url'));
 app.use('/', require('./routes/index'));
 
-const port = 3000
+const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log('server is up on 3000');
 })
