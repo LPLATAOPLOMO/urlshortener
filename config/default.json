@@ -1,0 +1,4 @@
+{
+    "mongoURI" : "mongodb+srv://urldb:Sa3290955@cluster0.qz955.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "baseURL" : "https://urlshortnerlive.herokuapp.com"
+}

@@ -1,22 +1,26 @@
 const express = require('express')
-const cors = require('cors')
 const morgan = require('morgan')
-const helmet = require('helmet')
-
+const connectDB = require('./config/db');
 const app= express();
 
-app.use(helmet());
 app.use(morgan('tiny'));
-app.use(cors());
+connectDB();
+
+app.use(express.urlencoded({extended: true}))
 app.use(express.json());
+app.set('view engine', 'ejs')
 app.use(express.static('./public'))
 app.get('/',(req,res) => {
-    res.json({
-        message : 'Hello and Welcome'
+    res.render('index.ejs',{
+        message: "",
+        urlvalue:""
     })
 })
 
-const port = process.env.PORT || 3000
+app.use('/api/url', require('./routes/url'));
+app.use('/', require('./routes/index'));
+
+const port = 3000
 app.listen(port, () => {
     console.log('server is up on 3000');
 })

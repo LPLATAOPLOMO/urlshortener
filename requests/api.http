@@ -1,0 +1,6 @@
+POST http://localhost:3000/api/url/shorten
+Content-Type: application/json
+
+{
+  "longUrl": "https://www.amazon.in/s?i=shoes&bbn=9780814031&rh=n%3A1571283031%2Cn%3A%211571284031%2Cn%3A1983396031%2Cn%3A1983518031%2Cn%3A9780814031%2Cn%3A1983577031%2Cp_n_pct-off-with-tax%3A0-&pf_rd_i=1983518031&pf_rd_i=1983518031&pf_rd_i=1983518031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=3c584f59-7f75-4f4a-bda4-0eeb64afb323&pf_rd_p=90a4b35a-a32b-49c0-a578-28e7066ea985&pf_rd_p=d89e9feb-6f80-4d30-a0ff-65c8131b7381&pf_rd_r=3JB3H4J5H6Y1BCBKQQ7C&pf_rd_r=893SP9160C0YTYJE8AWM&pf_rd_r=WZ96TT3PWZ2D9MW7ZX56&pf_rd_s=merchandised-search-6&pf_rd_s=merchandised-search-7&pf_rd_s=merchandised-search-7&ref=QANav11CTA_en_IN_1"
+}
