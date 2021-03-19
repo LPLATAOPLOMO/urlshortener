@@ -6,29 +6,29 @@ a {
 .ooltip .tooltiptext {
   visibility: hidden;
   width: 100px;
-  background-color: #555;
+  background-color:#555;
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 5px;
   position: absolute;
   z-index: 1;
-  bottom: 150%;
+  top: 150%;
   left: 98%;
   margin-left: -75px;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.ooltip .tooltiptext::after {
+.ooltip .tooltiptext::before {
   content: "";
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #555 transparent transparent transparent;
+  border-color: transparent transparent #555 transparent;
 }
 
 .ooltip:hover .tooltiptext {
