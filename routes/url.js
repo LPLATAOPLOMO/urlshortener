@@ -26,7 +26,8 @@ router.post('/shorten', async (req,res) => {
     if(longUrl==""){
         res.render("index",{
             message : "Please Provide url",
-            urlvalue: ""
+            urlvalue: "",
+            lurlvalue: ""
         })
     }
     else if(!validUrl.isUri(longUrl)){
