@@ -32,7 +32,8 @@ router.post('/shorten', async (req,res) => {
     else if(!validUrl.isUri(longUrl)){
         res.render("index",{
             message : "Invalid url",
-            urlvalue: ""
+            urlvalue: "",
+            lurlvalue: ""
         })
     }else{
         try {
@@ -41,7 +42,8 @@ router.post('/shorten', async (req,res) => {
            if(url){
             res.render("index",{
                 message:"",
-                urlvalue : url.shortUrl
+                urlvalue : url.shortUrl,
+                lurlvalue : url.longUrl
             });
            }else{
                const shortUrl = baseUrl + '/' + urlCode;
@@ -55,7 +57,8 @@ router.post('/shorten', async (req,res) => {
                await url.save()
                res.render("index",{
                     message:"",
-                    urlvalue : url.shortUrl
+                    urlvalue : url.shortUrl,
+                    lurlvalue : url.longUrl
                 })
            }
         } catch (error) {

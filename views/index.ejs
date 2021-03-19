@@ -12,6 +12,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <link rel="stylesheet" type="text/css" href="/particle.css" />
     <link
@@ -25,9 +26,9 @@
     <div id="particles-js"></div>
     <!-- Navbar Defined -->
     <div class="contanier-fluid">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+      <nav class="navbar navbar-expand-lg navbar-dark text-white" style="height: 70px; background-color:rgb(14, 12, 12);">
         <div class="container">
-          <a class="navbar-brand" href="#">URL Shortener</a>
+          <a class="navbar-brand" href="/">URL Shortener</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -85,13 +86,14 @@
         
         <div class="col-10">
           <span class="text-white " style="position: relative;margin-left: 40%;"><%=message%></span>
-          <form action="/api/url/shorten" method="POST">
+          <form action="/api/url/shorten" method="POST" >
             <div class="input-group input-group-sm mt-2">
               <input
                 type="text"
                 class="form-control mr-2 text-light"
                 id="urlip"
                 placeholder="Enter/Paste Your Long URL here"
+                value= "<% if(lurlvalue!="") { %> <%= lurlvalue %> <% } %>"
                 name="lurl"
               />
               <div class="input-group-btn">
@@ -117,16 +119,26 @@
                 type="text"
                 class="form-control mr-2 text-light"
                 placeholder="Copy from here when url fetched"
+                id="myInput"
                 value= "<% if(urlvalue!="") { %> <%= urlvalue %> <% } %>"
                 readonly
               />
-              <div class="input-group-btn">
-                <button
+              <div class="input-group-btn ">
+                <div class="ooltip">
+                <i class="fa fa-copy text-light fa-3x mr-3 " 
+                  onmouseout="outFunc()" 
+                  onclick="myFunction()" 
+                  style="margin-left: 48px;"> </i>
+                  <span class="tooltiptext text-light" id="myTooltip">Copy to clipboard</span>
+                </div>  
+                <!-- </button> -->
+                <!-- <button
                   class="btn btn-default"
                   style="margin-left: 15px; width: 80px"
                 >
+                
                   Copy
-                </button>
+                </button> -->
                 <!-- <span class="text-white"> <%= message  %></span> -->
               </div>
             </div>
@@ -216,5 +228,23 @@
         retina_detect: true,
       });
     </script>
+    <script>
+      function myFunction() {
+        var copyText = document.getElementById("myInput");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        var tooltip = document.getElementById("myTooltip");
+
+        if(copyText.value=="")
+          tooltip.innerHTML = "Nothing to Copy"
+        else   
+          tooltip.innerHTML = "Copied" ;
+      }
+      function outFunc() {
+      var tooltip = document.getElementById("myTooltip");
+      tooltip.innerHTML = "Copy to clipboard";
+      }
+      </script>
   </body>
 </html>
